@@ -1,2 +1,2 @@
 # essai-claude
-Premier essai avec clause code
+Premier essai avec Claude Code
