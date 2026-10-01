@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Couple de serrage des vis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="carte">
+    <h1>Couple de serrage d'une vis</h1>
+    <p class="intro">Choisissez le diamètre et la classe de qualité de la vis.</p>
+
+    <label for="diametre">Diamètre (filetage métrique pas normal)</label>
+    <select id="diametre"></select>
+
+    <label for="classe">Classe de qualité</label>
+    <select id="classe"></select>
+
+    <label for="frottement">État des surfaces (coefficient de frottement)</label>
+    <select id="frottement">
+      <option value="0.20" selected>À sec (K = 0,20)</option>
+      <option value="0.15">Légèrement huilé (K = 0,15)</option>
+      <option value="0.12">Graissé (K = 0,12)</option>
+    </select>
+
+    <button id="calculer">Calculer</button>
+
+    <div id="resultat" class="resultat" hidden>
+      <p class="couple"><span id="couple">0</span> N·m</p>
+      <p class="detail" id="detail"></p>
+    </div>
+
+    <p class="avertissement">
+      Valeur indicative (serrage à 75 % de la limite d'élasticité).
+      Pour une pièce de sécurité, vérifiez avec la documentation du fabricant.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

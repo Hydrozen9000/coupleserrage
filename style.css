@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef1f5;
+  margin: 0;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.carte {
+  background: white;
+  max-width: 420px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+h1 { font-size: 1.4rem; margin-top: 0; }
+.intro { color: #555; }
+
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  font-size: 1rem;
+  color: white;
+  background: #1f6feb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background: #1558c0; }
+
+.resultat {
+  margin-top: 24px;
+  padding: 16px;
+  background: #e8f3ea;
+  border-radius: 8px;
+  text-align: center;
+}
+.couple { font-size: 2rem; font-weight: bold; margin: 0; }
+.detail { color: #444; font-size: 0.85rem; margin-bottom: 0; }
+
+.avertissement {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: #777;
+}
