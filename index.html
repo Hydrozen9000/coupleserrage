@@ -14,26 +14,34 @@
     <h1>Couple de serrage d'une vis</h1>
     <p class="intro">Choisissez le type de filetage, le diamètre et la classe de qualité.</p>
 
-    <label for="famille">Type de filetage</label>
-    <select id="famille">
-      <option value="metrique-normal">Métrique pas normal (ISO)</option>
-      <option value="metrique-fin">Métrique pas fin (ISO)</option>
-      <option value="unc">Pouce pas normal (UNC)</option>
-      <option value="unf">Pouce pas fin (UNF)</option>
-    </select>
+    <div class="cadre cadre-bleu">
+      <label for="famille">Type de filetage</label>
+      <select id="famille">
+        <option value="metrique-normal">Métrique pas normal (ISO)</option>
+        <option value="metrique-fin">Métrique pas fin (ISO)</option>
+        <option value="unc">Pouce pas normal (UNC)</option>
+        <option value="unf">Pouce pas fin (UNF)</option>
+      </select>
+    </div>
 
-    <label for="diametre">Diamètre</label>
-    <select id="diametre"></select>
+    <div class="cadre cadre-orange">
+      <label for="diametre">Diamètre</label>
+      <select id="diametre"></select>
+    </div>
 
-    <label for="classe">Classe de qualité</label>
-    <select id="classe"></select>
+    <div class="cadre cadre-violet">
+      <label for="classe">Classe de qualité</label>
+      <select id="classe"></select>
+    </div>
 
-    <label for="frottement">État des surfaces (coefficient de frottement)</label>
-    <select id="frottement">
-      <option value="0.20" selected>À sec (K = 0,20)</option>
-      <option value="0.15">Légèrement huilé (K = 0,15)</option>
-      <option value="0.12">Graissé (K = 0,12)</option>
-    </select>
+    <div class="cadre cadre-rose">
+      <label for="frottement">État des surfaces (coefficient de frottement)</label>
+      <select id="frottement">
+        <option value="0.20" selected>À sec (K = 0,20)</option>
+        <option value="0.15">Légèrement huilé (K = 0,15)</option>
+        <option value="0.12">Graissé (K = 0,12)</option>
+      </select>
+    </div>
 
     <button id="calculer">Calculer</button>
 
