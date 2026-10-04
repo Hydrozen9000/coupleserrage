@@ -10,6 +10,7 @@ body {
 }
 
 .carte {
+  box-sizing: border-box;
   background: white;
   max-width: 420px;
   width: 100%;
@@ -20,7 +21,8 @@ body {
 }
 
 h1 {
-  font-size: 1.3rem;
+  font-size: min(1.2rem, calc((100vw - 84px) / 19.5));
+  white-space: nowrap;
   margin-top: 0;
   text-transform: uppercase;
   text-decoration: underline;
