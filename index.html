@@ -9,9 +9,17 @@
 <body>
   <main class="carte">
     <h1>Couple de serrage d'une vis</h1>
-    <p class="intro">Choisissez le diamètre et la classe de qualité de la vis.</p>
+    <p class="intro">Choisissez le type de filetage, le diamètre et la classe de qualité.</p>
 
-    <label for="diametre">Diamètre (filetage métrique pas normal)</label>
+    <label for="famille">Type de filetage</label>
+    <select id="famille">
+      <option value="metrique-normal">Métrique pas normal (ISO)</option>
+      <option value="metrique-fin">Métrique pas fin (ISO)</option>
+      <option value="unc">Pouce pas normal (UNC)</option>
+      <option value="unf">Pouce pas fin (UNF)</option>
+    </select>
+
+    <label for="diametre">Diamètre</label>
     <select id="diametre"></select>
 
     <label for="classe">Classe de qualité</label>
@@ -27,12 +35,13 @@
     <button id="calculer">Calculer</button>
 
     <div id="resultat" class="resultat" hidden>
-      <p class="couple"><span id="couple">0</span> N·m</p>
+      <p class="couple"><span id="couple-dan">0</span> daN·m</p>
+      <p class="couple-nm"><span id="couple-nm">0</span> N·m</p>
       <p class="detail" id="detail"></p>
     </div>
 
     <p class="avertissement">
-      Valeur indicative (serrage à 75 % de la limite d'élasticité).
+      Valeur indicative (serrage à 75 % de la limite d'élasticité). 1 daN·m = 10 N·m.
       Pour une pièce de sécurité, vérifiez avec la documentation du fabricant.
     </p>
   </main>
