@@ -46,19 +46,24 @@ select {
   font-size: 1rem;
 }
 
-button {
-  font-family: inherit;
-  width: 100%;
-  margin-top: 24px;
-  padding: 12px;
-  font-size: 1rem;
-  color: white;
-  background: #1f6feb;
-  border: none;
+/* Un cadre coloré par choix */
+.cadre {
+  --couleur: #1a5fd0;
+  --fond: #eaf1fe;
+  margin-top: 16px;
+  padding: 12px 14px 14px;
+  background: var(--fond);
+  border: 3px solid var(--couleur);
   border-radius: 8px;
-  cursor: pointer;
 }
-button:hover { background: #1558c0; }
+.cadre label { color: var(--couleur); }
+.cadre select { border: 2px solid var(--couleur); background: white; }
+.cadre-bleu      { --couleur: #1a5fd0; --fond: #eaf1fe; }
+.cadre-orange    { --couleur: #b85a00; --fond: #fff2e3; }
+.cadre-jaune     { --couleur: #8a6a00; --fond: #fff8d6; }
+.cadre-violet    { --couleur: #6a3fb5; --fond: #f2ecfb; }
+.cadre-rose      { --couleur: #b02a6b; --fond: #fdebf4; }
+.cadre-turquoise { --couleur: #00798c; --fond: #e1f6fa; }
 
 .resultat {
   margin-top: 24px;
@@ -71,6 +76,7 @@ button:hover { background: #1558c0; }
 }
 .couple { font-size: 2.2rem; font-weight: bold; margin: 0; }
 .couple-nm { font-size: 1.1rem; margin: 4px 0 0; }
+.couple-lbf { font-size: 1.1rem; margin: 0; }
 .detail { font-size: 0.8rem; margin-bottom: 0; }
 
 .avertissement {
@@ -79,19 +85,4 @@ button:hover { background: #1558c0; }
   color: #777;
 }
 
-/* Un cadre coloré par choix : filetage, diamètre, classe, état de surface */
-.cadre {
-  --couleur: #1f6feb;
-  --fond: #eaf1fe;
-  margin-top: 16px;
-  padding: 12px 14px 14px;
-  background: var(--fond);
-  border: 3px solid var(--couleur);
-  border-radius: 8px;
-}
-.cadre label { color: var(--couleur); }
-.cadre select { border: 2px solid var(--couleur); background: white; }
-.cadre-bleu   { --couleur: #1a5fd0; --fond: #eaf1fe; }
-.cadre-orange { --couleur: #b85a00; --fond: #fff2e3; }
-.cadre-violet { --couleur: #6a3fb5; --fond: #f2ecfb; }
-.cadre-rose   { --couleur: #b02a6b; --fond: #fdebf4; }
+select:focus-visible { outline: 3px solid #1d2330; outline-offset: 2px; }

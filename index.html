@@ -12,47 +12,60 @@
 <body>
   <main class="carte">
     <h1>Calcul couple de serrage vis</h1>
-    <p class="intro">Choisissez le type de filetage, le diamètre et la classe de qualité.</p>
+    <p class="intro">Choisissez le système, le diamètre, le pas et la classe de qualité. Le résultat se met à jour tout seul.</p>
 
     <div class="cadre cadre-bleu">
-      <label for="famille">Type de filetage</label>
-      <select id="famille">
-        <option value="metrique-normal">Métrique pas normal (ISO)</option>
-        <option value="metrique-fin">Métrique pas fin (ISO)</option>
-        <option value="unc">Pouce pas normal (UNC)</option>
-        <option value="unf">Pouce pas fin (UNF)</option>
+      <label for="systeme">1. Système</label>
+      <select id="systeme">
+        <option value="metrique">Métrique (ISO)</option>
+        <option value="pouce">Pouce (UNC / UNF)</option>
       </select>
     </div>
 
     <div class="cadre cadre-orange">
-      <label for="diametre">Diamètre</label>
+      <label for="diametre">2. Diamètre</label>
       <select id="diametre"></select>
     </div>
 
+    <div class="cadre cadre-jaune">
+      <label for="pas">3. Pas du filetage</label>
+      <select id="pas"></select>
+    </div>
+
     <div class="cadre cadre-violet">
-      <label for="classe">Classe de qualité</label>
+      <label for="classe">4. Classe de qualité</label>
       <select id="classe"></select>
     </div>
 
     <div class="cadre cadre-rose">
-      <label for="frottement">État des surfaces (coefficient de frottement)</label>
+      <label for="frottement">5. État des surfaces (coefficient de frottement)</label>
       <select id="frottement">
         <option value="0.20" selected>À sec (K = 0,20)</option>
         <option value="0.15">Légèrement huilé (K = 0,15)</option>
-        <option value="0.12">Graissé (K = 0,12)</option>
+        <option value="0.12">Graissé ou antigrippant (K = 0,12)</option>
+        <option value="0.10">Zingué ou cadmié (K = 0,10)</option>
+        <option value="0.08">Bisulfure de molybdène (K = 0,08)</option>
       </select>
     </div>
 
-    <button id="calculer">Calculer</button>
+    <div class="cadre cadre-turquoise">
+      <label for="charge">6. Taux de chargement</label>
+      <select id="charge">
+        <option value="0.75" selected>75 % (montage démontable)</option>
+        <option value="0.90">90 % (montage définitif)</option>
+      </select>
+    </div>
 
-    <div id="resultat" class="resultat" hidden>
+    <div id="resultat" class="resultat" aria-live="polite">
       <p class="couple"><span id="couple-dan">0</span> daN·m</p>
       <p class="couple-nm"><span id="couple-nm">0</span> N·m</p>
+      <p class="couple-lbf" id="ligne-lbf" hidden><span id="couple-lbf">0</span> lbf·ft</p>
       <p class="detail" id="detail"></p>
     </div>
 
     <p class="avertissement">
-      Valeur indicative (serrage à 75 % de la contrainte d'épreuve). 1 daN·m = 10 N·m.
+      Valeur indicative, calculée à partir de la contrainte d'épreuve. 1 daN·m = 10 N·m.
+      Pour l'inox (A2-70, A4-80), le frottement réel varie beaucoup : prévoyez une marge.
       Pour une pièce de sécurité, vérifiez avec la documentation du fabricant.
     </p>
   </main>
