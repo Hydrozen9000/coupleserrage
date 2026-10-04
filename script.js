@@ -49,11 +49,12 @@ const familles = {
   }
 };
 
-// Limite d'élasticité (MPa) de chaque classe de qualité
+// Contrainte d'épreuve (MPa) de chaque classe de qualité : c'est la valeur
+// utilisée par les tableaux de couples publiés (ISO 898-1 et SAE J429)
 const listesDeClasses = {
   metrique: {
-    "4.6": () => 240, "5.8": () => 420, "8.8": () => 640,
-    "10.9": () => 940, "12.9": () => 1100
+    "4.6": () => 225, "5.8": () => 380, "8.8": () => 580,
+    "10.9": () => 830, "12.9": () => 970
   },
   // Vis en pouce (SAE) : la classe 2 est moins résistante au-dessus de 3/4"
   sae: {
@@ -83,14 +84,14 @@ function remplirListes() {
 function calculer() {
   const famille = familles[selectFamille.value];
   const [, d, pas] = famille.vis[Number(selectDiametre.value)]; // mm
-  const rp = listesDeClasses[famille.classes][selectClasse.value](d); // MPa = N/mm²
+  const rp = listesDeClasses[famille.classes][selectClasse.value](d); // contrainte d'épreuve, MPa = N/mm²
   const k = Number(document.getElementById("frottement").value);
 
   // Section résistante (mm²) : section du "diamètre moyen" du filetage
   const diametreMoyen = d - famille.coefficient * pas;
   const as = (Math.PI / 4) * diametreMoyen ** 2;
 
-  // Force de serrage (N) = 75 % de la limite d'élasticité × section
+  // Force de serrage (N) = 75 % de la contrainte d'épreuve × section
   const force = 0.75 * rp * as;
 
   // Couple (N·m) = K × d(mm) × F(N) ÷ 1000, puis 1 daN·m = 10 N·m
@@ -101,8 +102,8 @@ function calculer() {
   document.getElementById("couple-dan").textContent = virgule(coupleDan, 2);
   document.getElementById("couple-nm").textContent = virgule(coupleNm, 1);
   document.getElementById("detail").textContent =
-    "Section " + virgule(as, 1) + " mm² · limite d'élasticité " + rp +
-    " MPa · force de serrage " + Math.round(force) + " N";
+    "Section " + virgule(as, 1) + " mm² · contrainte d'épreuve " + rp +
+    " MPa · K = " + virgule(k, 2) + " · force de serrage " + Math.round(force) + " N";
   document.getElementById("resultat").hidden = false;
 }
 
